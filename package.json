@@ -1,0 +1,30 @@
+{
+  "name": "music-favorite",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "jrs-react-components": "^2.0.4",
+    "ramda": "^0.24.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-router-dom": "^4.1.1",
+    "redux": "^3.7.0",
+    "redux-thunk": "^2.2.0",
+    "tachyons": "^4.7.4"
+  },
+  "devDependencies": {
+    "foreman": "^2.0.0",
+    "json-server": "^0.10.1",
+    "react-scripts": "1.0.7",
+    "xslide": "^1.1.0"
+  },
+  "scripts": {
+    "start": "nf start",
+    "api": "json-server --watch db.json -p 4000",
+    "web": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "standard",
+    "eject": "react-scripts eject"
+  }
+}
