@@ -3,25 +3,9 @@ import { SET_FAVORITES } from '../constants'
 export default (
   state = [
     {
-      id: 1,
-      title: 'What about Bob?',
-      year: '1991',
-      poster:
-        'https://images-na.ssl-images-amazon.com/images/M/MV5BMTQxMjU2ODk4N15BMl5BanBnXkFtZTgwODQzNTcxMTE@._V1_SX300.jpg'
-    },
-    {
-      id: 2,
-      title: 'Groundhog Day',
-      year: '1993',
-      poster:
-        'https://images-na.ssl-images-amazon.com/images/M/MV5BZWIxNzM5YzQtY2FmMS00Yjc3LWI1ZjUtNGVjMjMzZTIxZTIxXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg'
-    },
-    {
-      id: 3,
-      title: 'Ghostbusters',
-      year: '1984',
-      poster:
-        'https://images-na.ssl-images-amazon.com/images/M/MV5BMTkxMjYyNzgwMl5BMl5BanBnXkFtZTgwMTE3MjYyMTE@._V1_SX300.jpg'
+      name: 'Saints and Sinners',
+      id: '5HSdx1824FepWuf8NbG7B3',
+      poster: 'https://i.scdn.co/image/f896b4651bea2a75dc1418a284473c02444c0c1c'
     }
   ],
   action
