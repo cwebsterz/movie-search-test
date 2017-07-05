@@ -9,40 +9,33 @@ npm install
 npm start
 ```
 
-* Open editor to Music favorites
-* Open Readme
+* Using your editor, open the **music-favorites** folder.
+* Open **README.md**.
 
 ---
 
 ## Step 1 - List Favorite Music
 
-On the Home page component use `map` to list all of the
-favorite music in the redux store state `favorites`.
+On the Home page component use `map` to list all of the favorite music in the redux store state `favorites`.
 
 ---
 
 ## Step 2 - Show each favorite when clicked.
 
-On the Show page component use `componentDidMount` to load the favorite music from the route params id into the favorite state. Then in the render function present the
-the favorite music using the MusicCard Component and the favorite state.
+On the Show page component use `componentDidMount` to load the favorite music from the route params id into the `favorite` state. Then in the `render()` function present the favorite music using the `MusicCard` Component and the `favorite` state.
 
 ---
 
 ## Step 3 - Add a new favorite to state
 
-On the form component we want to enable the
-user to create a new music favorite and
-add it to the favorites list.
+On the form component we want to enable the user to create a new music favorite and add it to the `favorites` list.
 
 ---
 
 ## Step 4 - Search for a music via https://music-search.jrs.camp/
 
-On the new form, create a button called search, when clicked route to the search component to allow the user to find and
-select the music data from the music database.
-Take the selection and apply to the new
-favorite model and redirect back to the
-form component.
+On the new form, create a button called **Search**, when clicked route to the search component to allow the user to find and
+select the music data from the music database. Take the selection and apply to the new `favorite` model and redirect back to the form component.
 
 ### Example
 
@@ -79,46 +72,34 @@ preact.render(
 
 ---
 
-## Step 5 - Persist Music Favorite Data
-to local api
+## Step 5 - Persist Music Favorite Data to local api
 
-Using the store.dispatch, redux thunk and fetch we want to
-get our favorites from the localhost:4000/favorites api when the
-app starts.
+Using the `store.dispatch`, redux thunk and fetch we want to get our favorites from the `localhost:4000/favorites` api when the app starts.
 
 ---
 
 ## Step 6 - Refactor Add Music Favorite to API
 
-On the form component we want to send the
-new favorite to the api on localhost:4000/favorites. Using fetch, and
-redux thunk and dispatch.
+On the form component we want to send the new favorite to the api on `localhost:4000/favorites`. Using fetch, and redux thunk and dispatch.
 
 ---
 
 ## Step 7 - Edit the Music favorite rank
 
-Create a new page component called edit-rank.js
-in the pages folder, connect the edit page
-via routing on the show movie favorite. Then
-allow the user to edit the rank of the selected music, by loading the favorite on
-component did mount and saving the movie to the api on submit.
+Create a new page component called **edit-rank.js**.  In the pages folder, connect the edit page via routing on the show movie favorite. Then allow the user to edit the rank of the selected music, by loading the favorite on component did mount and saving the movie to the api on submit.
 
 ---
 
 ## Step 8 - Remove the Music Favorite
 
-On the show music favorite page add a remove button, that prompts the user `are you sure?`.
-If answer is true then use fetch to remove the
-favorite from the api and state.
+On the show music favorite page add a remove button, that prompts the user `are you sure?`. If answer is true then use fetch to remove the favorite from the api and state.
 
 ---
 
 ## Step 9 - Sort Music Favorite List by rank
 
-Add the movie rank to the list and sort by rank
-using the ramda sortBy function. Make sure the
-sort is by value and not lexical.
+Add the movie rank to the list and sort by rank using the ramda `sortBy` function. Make sure the
+sort is by value and not lexical.  In other words, make sure a rank of 1 and a rank of 10 sort appropriately. 
 
 ---
 
@@ -131,17 +112,14 @@ the search criteria.
 
 ## Step 11 - Only show the top 10 with a more button, when pressed show more.
 
-Default the initial view to the top 10 movie favorites, but add a more button to display
-more music favorites 10 at a time.
+Default the initial view to the top 10 movie favorites, but add a more button to display more music favorites 10 at a time.
 
 ---
 
 
 # FROM: JRS React Starter Kit
 
-This starter kit is only for JRS Coding School
-Students to get their tutorial projects up and
-going quickly.
+This starter kit is only for JRS Coding School Students to get their tutorial projects up and going quickly.
 
 It includes:
 
@@ -215,10 +193,7 @@ The docs application is running on port 5000 of localhost
 
 ## Setting up the API Server
 
-The api server is a json-server, it uses a text file to
-store the api data. `db.json`. In order for endpoints to
-be reconized you need to create the resources in the
-`db.json` file before starting your system.
+The api server is a json-server, it uses a text file to store the api data. `db.json`. In order for endpoints to be reconized you need to create the resources in the `db.json` file before starting your system.
 
 - Edit the db.json file providing named resources
 
@@ -244,16 +219,14 @@ You can find out more at
 
 ## Help
 
-If you are having problems using the starter kit, please
-post a message in the `#starterkit` channel in
+If you are having problems using the starter kit, please post a message in the `#starterkit` channel in
 [jrscode-slack](https://jrscode.slack.com)
 
 ---
 
 ## Contributions
 
-All contributions are welcome, please post your ideas in
-the issues repository.
+All contributions are welcome, please post your ideas in the issues repository.
 
 ---
 
@@ -261,7 +234,8 @@ the issues repository.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Below you will find some information on how to perform common tasks.<br>
+Below you will find some information on how to perform common tasks.
+
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 ## Table of Contents
