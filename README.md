@@ -47,12 +47,6 @@ form component.
 ### Example
 
 ```
-import preact from 'preact'
-
-/** @jsx preact.h */
-import R from 'ramda'
-const { map } = R
-
 fetch(`https://music-search.jrs.camp/?q=beatles`, {
   headers: {
     Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqcnMuY2FtcCIsImlhdCI6MTQ5ODg2OTM0MiwiZXhwIjoxNTkzNTYzNzQyLCJhdWQiOiJtdXNpYy1zZWFyY2guanJzLmNhbXAiLCJzdWIiOiIxMjM0In0.XtmiG7OD3pGdS748IC4CRJp_qUa7A_JvtNu2G_GcIP8'
@@ -61,18 +55,7 @@ fetch(`https://music-search.jrs.camp/?q=beatles`, {
 .then(res => res.json())
 .then(items => {
 
-const li = ({id, href, name, poster}) => (
-  <li key={id}>
-    <a target="_blank" href={`https://open.spotify.com/album/${id}`}>
-    <img src={poster} alt={name} />
-    </a>
-  </li>
-)
-preact.render(
-  <ul>
-    {map(li, items)}            
-  </ul>, document.body)
-})
+
 ```
 
 [Live Demo](https://glitch.com/edit/#!/jrs-camp-music-search)
