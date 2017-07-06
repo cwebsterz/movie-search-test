@@ -31,7 +31,7 @@ class Show extends React.Component {
 					<div className="mw6 tc center">
 						<a
 							className="link ba br2 w4 pa2 center db mb3"
-							href={`https://open.spotify.com/album/5HSdx1824FepWuf8NbG7B3`}
+							href={`https://open.spotify.com/album/` + props.favorite.id}
 							target="_blank"
 						>
 							Play Album

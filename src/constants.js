@@ -8,3 +8,6 @@ export const SET_FAVE_TITLE = 'SET_FAVE_TITLE'
 
 export const APPEND_FAVE = 'APPEND_FAVE'
 export const CLEAR_FAVE = 'CLEAR_FAVE'
+
+export const SEARCH_TEXT = 'SEARCH_TEXT'
+export const SEARCH_RESULTS = 'SEARCH_RESULTS'

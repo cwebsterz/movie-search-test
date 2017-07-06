@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../containers/header'
 import { Link } from 'react-router-dom'
-import { TextField } from 'jrs-react-components'
+import { TextField, Button } from 'jrs-react-components'
 import BigButton from '../components/big-button'
 import { connect } from 'react-redux'
 import {
@@ -18,6 +18,13 @@ const Form = props =>
 		<Header />
 		<main>
 			<div className="mw6 pv2 ph3 center mt2">
+				<div className="cf">
+					<div className="fr">
+						<Link to="/search">
+							<Button>Search Albums</Button>
+						</Link>
+					</div>
+				</div>
 				<h2>Add New Favorite</h2>
 				<form onSubmit={props.handleSubmit(props.history)}>
 					<TextField
