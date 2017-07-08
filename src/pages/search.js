@@ -4,7 +4,12 @@ import { Link } from 'react-router-dom'
 import { TextField, List, ImageListItem, Button } from 'jrs-react-components'
 import { connect } from 'react-redux'
 import LinkButton from '../components/link-button'
-import { SEARCH_TEXT, SEARCH_RESULTS } from '../constants'
+import {
+	SEARCH_TEXT,
+	SEARCH_RESULTS,
+	CLEAR_SEARCHED_ALBUMS,
+	SET_FAVE
+} from '../constants'
 import { map } from 'ramda'
 
 const Search = props => {
@@ -15,7 +20,11 @@ const Search = props => {
 				id={albums.id}
 				title={albums.name}
 				image={albums.poster}
-				link={<LinkButton to={`/show/${albums.id}`}>Details</LinkButton>}
+				link={
+					<Button onClick={props.showDetails(props.history, albums)}>
+						Select
+					</Button>
+				}
 			/>
 		)
 	}
@@ -77,6 +86,12 @@ function searchAlbums(dispatch, getState) {
 
 function mapActionsToProps(dispatch) {
 	return {
+		showDetails: (history, album) => e => {
+			dispatch({ type: SET_FAVE, payload: album })
+			dispatch({ type: CLEAR_SEARCHED_ALBUMS })
+
+			history.push('/new')
+		},
 		handleSubmit: e => {
 			e.preventDefault()
 			dispatch(searchAlbums)
