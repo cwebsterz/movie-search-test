@@ -8,12 +8,14 @@ import {
 } from 'jrs-react-components'
 import LinkButton from '../components/link-button'
 import { connect } from 'react-redux'
-import { map } from 'ramda'
+import { map, sortBy, compose, prop } from 'ramda'
 
 const Home = function(props) {
 	function li(albums) {
+		console.log('albums: ', albums)
 		return (
 			<ImageListItem
+				rank={albums.rank}
 				key={albums.id}
 				id={albums.id}
 				title={albums.name}
@@ -21,6 +23,10 @@ const Home = function(props) {
 				link={<LinkButton to={`/show/${albums.id}`}>Details</LinkButton>}
 			/>
 		)
+	}
+
+	function sortedAlbums(albumRank) {
+		return sortBy(a => Number(prop('rank', a), albumRank))
 	}
 
 	return (
@@ -33,7 +39,7 @@ const Home = function(props) {
 							title="Add New Favorite"
 							link={<LinkButton to="/new">Add</LinkButton>}
 						/>
-						{map(li, props.favorites)}
+						{compose(map(li), sortedAlbums())(props.favorites)}
 					</List>
 				</div>
 			</main>

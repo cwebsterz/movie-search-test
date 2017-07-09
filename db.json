@@ -1,25 +1,11 @@
 {
   "favorites": [
     {
-      "id": "6vDiMhyfSnTn18OY99BSQX",
-      "href": "https://api.spotify.com/v1/albums/6vDiMhyfSnTn18OY99BSQX",
-      "name": "Deja Entendu",
-      "poster": "https://i.scdn.co/image/7e498a6ceb9817933f22d1989f870ccd999447b7",
-      "rank": 1
-    },
-    {
-      "id": "7BAzCcA3ri1ifFiC1TgPMx",
-      "href": "https://api.spotify.com/v1/albums/7BAzCcA3ri1ifFiC1TgPMx",
-      "name": "This Is a Long Drive for Someone with Nothing to Think About",
-      "poster": "https://i.scdn.co/image/1192641833c285c7f8dc011cd521ed800c079380",
-      "rank": 2
-    },
-    {
       "id": "58HZZpS0wxJKwGjoerg0mk",
       "href": "https://api.spotify.com/v1/albums/58HZZpS0wxJKwGjoerg0mk",
       "name": "Songs For The Deaf",
       "poster": "https://i.scdn.co/image/6362f7bc49b5e793ea9c286b435249e8274f9c45",
-      "rank": 3
+      "rank": 1
     },
     {
       "id": "7x6wYKbZUU2BL3N8ZWwM3q",
@@ -27,6 +13,13 @@
       "name": "2",
       "poster": "https://i.scdn.co/image/788a1c7776d3ccc2201710c990d2020b7456cd5a",
       "rank": 4
+    },
+    {
+      "id": "2BRqfk8jL7y3egZqlc5MkU",
+      "href": "https://api.spotify.com/v1/albums/2BRqfk8jL7y3egZqlc5MkU",
+      "name": "The Devil And God Are Raging Inside Me",
+      "poster": "https://i.scdn.co/image/7340c1de0a132f8c7cac2f4f816420d20313b935",
+      "rank": 3
     }
   ]
 }

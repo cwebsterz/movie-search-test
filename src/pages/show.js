@@ -5,11 +5,11 @@ import BigButton from '../components/big-button'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { find, propEq } from 'ramda'
-import { SET_FAVE, CLEAR_FAVE } from '../constants'
+import { SET_FAVE, CLEAR_FAVE, DELETE_FAVE } from '../constants'
 import { TextField, Button } from 'jrs-react-components'
 
 class Show extends React.Component {
-	componentDidMount(dispatch) {
+	componentDidMount() {
 		const faveAlbum = find(
 			propEq('id', this.props.match.params.id),
 			this.props.favorites
@@ -38,7 +38,10 @@ class Show extends React.Component {
 							Play Album
 						</a>
 						<Link to="/"><BigButton>Return</BigButton></Link>
-						<BigButton onClick={props.handleClick()}>Delete</BigButton>
+						<Link to="/edit"><BigButton>Edit Rank</BigButton></Link>
+						<BigButton onClick={props.handleClick(props.history)}>
+							Delete
+						</BigButton>
 					</div>
 				</main>
 			</div>
@@ -54,24 +57,29 @@ function mapStateToProps(state) {
 	}
 }
 
-function removeAlbum(dispatch, getState) {
-	const selectedAlbum = getState().search.selectedAlbum
-	const url = process.env.REACT_APP_MUSIC
+const removeAlbum = history => (dispatch, getState) => {
+	const favorite = getState().favorite
+	const url = process.env.REACT_APP_API + `/favorites/` + favorite.id
 
-	fetch(url + '/favorites', {
-		method: 'DELETE',
-		headers: new Headers({ 'Content-Type': 'application/json' }),
-		body: JSON.stringify()
+	fetch(url, {
+		method: 'DELETE'
 	})
 		.then(res => res.json())
-		.then(favorite => {
-			dispatch({ type: CLEAR_FAVE })
+		.then(fave => {
+			dispatch({ type: DELETE_FAVE, payload: fave })
 		})
+	dispatch({ type: CLEAR_FAVE })
+	history.push('/')
 }
 
 function mapActionsToProps(dispatch) {
 	return {
-		handleClick: e => dispatch(removeAlbum)
+		dispatch: dispatch,
+		handleClick: history => e => {
+			window.confirm('Are you sure?')
+				? dispatch(removeAlbum(history))
+				: console.log('Deleted item.')
+		}
 	}
 }
 

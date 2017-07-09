@@ -11,6 +11,7 @@ class Edit extends React.Component {
 			propEq('id', this.props.match.params.id),
 			this.props.favorites
 		)
+		this.props.dispatch({ type: SET_FAVE, payload: faveAlbum })
 	}
 
 	render() {
@@ -30,7 +31,7 @@ class Edit extends React.Component {
 								width={20}
 							/>
 							<div className="mt4 center tc">
-								<Button onClick={props.editRank(props.history)}>
+								<Button>
 									Edit Rank
 								</Button>
 							</div>
@@ -55,14 +56,14 @@ const setFave = history => (dispatch, getState) => {
 	const favorite = getState().favorite
 	const url = process.env.REACT_APP_API
 
-	fetch(url + '/favorites', {
+	fetch(url + '/favorites/' + favorite.id, {
 		method: 'POST',
 		headers: new Headers({ 'Content-Type': 'application/json' }),
 		body: JSON.stringify(favorite)
 	})
 		.then(res => res.json())
-		.then(favorite => {
-			dispatch({ type: SET_FAVE_RANK, payload: favorite })
+		.then(fave => {
+			dispatch({ type: SET_FAVE_RANK, payload: fave })
 		})
 
 	dispatch({ type: CLEAR_FAVE })
@@ -71,11 +72,7 @@ const setFave = history => (dispatch, getState) => {
 
 function mapActionsToProps(dispatch) {
 	return {
-		editRank: (history, album) => e => {
-			dispatch({ type: SET_FAVE, payload: album })
-
-			history.push(process.env.REACT_APP_API + '/favorites')
-		},
+		dispatch: dispatch,
 		handleSubmit: history => e => {
 			e.preventDefault()
 			dispatch(setFave(history))
