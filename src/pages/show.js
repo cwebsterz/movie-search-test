@@ -5,10 +5,11 @@ import BigButton from '../components/big-button'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { find, propEq } from 'ramda'
-import { SET_FAVE } from '../constants'
+import { SET_FAVE, CLEAR_FAVE } from '../constants'
+import { TextField, Button } from 'jrs-react-components'
 
 class Show extends React.Component {
-	componentDidMount() {
+	componentDidMount(dispatch) {
 		const faveAlbum = find(
 			propEq('id', this.props.match.params.id),
 			this.props.favorites
@@ -37,18 +38,40 @@ class Show extends React.Component {
 							Play Album
 						</a>
 						<Link to="/"><BigButton>Return</BigButton></Link>
+						<BigButton onClick={props.handleClick()}>Delete</BigButton>
 					</div>
 				</main>
 			</div>
 		)
 	}
 }
-const connector = connect(mapStateToProps)
+const connector = connect(mapStateToProps, mapActionsToProps)
 
 function mapStateToProps(state) {
 	return {
 		favorites: state.favorites,
 		favorite: state.favorite
+	}
+}
+
+function removeAlbum(dispatch, getState) {
+	const selectedAlbum = getState().search.selectedAlbum
+	const url = process.env.REACT_APP_MUSIC
+
+	fetch(url + '/favorites', {
+		method: 'DELETE',
+		headers: new Headers({ 'Content-Type': 'application/json' }),
+		body: JSON.stringify()
+	})
+		.then(res => res.json())
+		.then(favorite => {
+			dispatch({ type: CLEAR_FAVE })
+		})
+}
+
+function mapActionsToProps(dispatch) {
+	return {
+		handleClick: e => dispatch(removeAlbum)
 	}
 }
 

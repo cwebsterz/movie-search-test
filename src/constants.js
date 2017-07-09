@@ -13,3 +13,5 @@ export const CLEAR_FAVE = 'CLEAR_FAVE'
 export const SEARCH_TEXT = 'SEARCH_TEXT'
 export const SEARCH_RESULTS = 'SEARCH_RESULTS'
 export const CLEAR_SEARCHED_ALBUMS = 'CLEAR_SEARCHED_ALBUMS'
+
+export const EDIT_RANK = 'EDIT_RANK'
