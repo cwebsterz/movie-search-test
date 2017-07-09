@@ -4,11 +4,17 @@ import {
 	Button,
 	List,
 	ImageListItem,
-	SimpleListItem
+	SimpleListItem,
+	TextField
 } from 'jrs-react-components'
 import LinkButton from '../components/link-button'
 import { connect } from 'react-redux'
 import { map, sortBy, compose, prop } from 'ramda'
+import {
+	SEARCH_TEXT,
+	SEARCH_RESULTS,
+	CLEAR_SEARCHED_ALBUMS
+} from '../constants'
 
 const Home = function(props) {
 	function li(albums) {
@@ -33,6 +39,25 @@ const Home = function(props) {
 		<div>
 			<Header />
 			<main>
+
+				<div className="mw6 center mt2 tc">
+					<form onSubmit={props.handleSubmit}>
+
+						<TextField
+							value={props.searchAlbum}
+							onChange={props.handleChange}
+							optional={false}
+							help="Enter Album Name"
+						/>
+						<div className="cf">
+							<div className="fc">
+								<Button>Search Albums</Button>
+							</div>
+						</div>
+					</form>
+					{map(li, props.searchResults)}
+				</div>
+
 				<div className="mw6 center mt2 tc">
 					<List>
 						<SimpleListItem
@@ -47,12 +72,38 @@ const Home = function(props) {
 	)
 }
 
-const connector = connect(mapStateToProps)
+const connector = connect(mapStateToProps, mapActionsToProps)
 
 function mapStateToProps(state) {
 	console.log('state', state)
 	return {
-		favorites: state.favorites
+		favorites: state.favorites,
+		searchAlbum: state.search.searchAlbum,
+		searchResults: state.search.searchResults
+	}
+}
+
+function searchAlbums(dispatch, getState) {
+	const searchAlbum = getState().search.searchAlbum
+	const url = process.env.REACT_APP_API + '/favorites/'
+
+	fetch(url + '?q=' + searchAlbum).then(res => res.json()).then(items => {
+		if (searchAlbum === '') {
+			alert('Input search items.')
+			return
+		}
+		dispatch({ type: SEARCH_RESULTS, payload: items })
+	})
+}
+
+function mapActionsToProps(dispatch) {
+	return {
+		dispatch: dispatch,
+		handleSubmit: e => {
+			e.preventDefault()
+			dispatch(searchAlbums)
+		},
+		handleChange: e => dispatch({ type: SEARCH_TEXT, payload: e.target.value })
 	}
 }
 

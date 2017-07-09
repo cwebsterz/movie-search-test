@@ -20,6 +20,20 @@
       "name": "The Devil And God Are Raging Inside Me",
       "poster": "https://i.scdn.co/image/7340c1de0a132f8c7cac2f4f816420d20313b935",
       "rank": 3
+    },
+    {
+      "id": "6vDiMhyfSnTn18OY99BSQX",
+      "href": "https://api.spotify.com/v1/albums/6vDiMhyfSnTn18OY99BSQX",
+      "name": "Deja Entendu",
+      "poster": "https://i.scdn.co/image/7e498a6ceb9817933f22d1989f870ccd999447b7",
+      "rank": 2
+    },
+    {
+      "id": "06S2JBsr4U1Dz3YaenPdVq",
+      "href": "https://api.spotify.com/v1/albums/06S2JBsr4U1Dz3YaenPdVq",
+      "name": "...Like Clockwork",
+      "poster": "https://i.scdn.co/image/ea597f3c6acf5be81c1eddee4d6d29bdd058a6b6",
+      "rank": 5
     }
   ]
 }
